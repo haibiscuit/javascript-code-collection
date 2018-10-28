@@ -2,6 +2,7 @@
 　　　　　　　
 ## 下面是我在博客上看到的一道js面试题，可以说非常经典，下面会以最简单的方式让你理解
 题目：
+
 ```bash
 function Foo() {
     getName = function () { alert (1); };
@@ -22,15 +23,18 @@ new Foo().getName();            //第六题　　答案:3
 new new Foo().getName();        //第七题　　答案:3
 
 ```
+
 ## 解释
 ### 第一题　Foo.getName();
 (1).这一题涉及静态属性
+
 ```bash
     例如：
 　　　　　　　　function A(){}
         A.name = "我是A的静态属性name";
         console.log((A.name);
 ```
+
 事实上执行的是:
               Foo.getName = function () { alert (2);};
 
@@ -83,26 +87,39 @@ new new Foo().getName();        //第七题　　答案:3
 ### 第六题
 (1).这题答案也是对的，涉及函数原型的知识点
 事实上执行的是:
-　　　　          (new  FOO()).getName();
+```js
+(new  FOO()).getName();
+```
 
 (2).可能有宝宝会疑问，为什么不是１呢问的好
-　　　　　　如果写成　　var $this = FOO();
-                       $this.getName();   //这个时候答案是１(如果下面没有其他的getName定义，否则答案还是4)
-    其实这题调用的是FOO()原型的getName()方法
+如果写成
+
+```js
+var $this = FOO();
+$this.getName();   
+```
+//这个时候答案是１(如果下面没有其他的getName定义，否则答案还是4)
+其实这题调用的是FOO()原型的getName()方法
 //本来想多写点，但涉及到prototype原型的方法，喜欢的话以后继续更新
 
 ### 第七题
 (1).实际上执行
-　　　　(new　(new FOO()).getName())
+
+```js
+(new　(new FOO()).getName())
+```
 
 (2).这一题实际上调用了两次构造函数，与上一题类似，但本体会生成一个新的对象
 
 //不多说，项目中也用不到
 
 ## 最后留一道题
+
+```js
 function C(){};
 C.prototype.test=function(){console.log("mytest");};
 C.prototype.test.prototype.testName=function(){console.log("mygod");};
 (new (new C()).test()).testName();
+```
 
-###想知道答案的宝宝记得在github上call我
+### 想知道答案的宝宝记得在github上call我
