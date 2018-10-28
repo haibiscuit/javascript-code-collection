@@ -1,58 +1,58 @@
-# 目录：
-#      一：数组操作
-#     二：字符串操作
-#      三：定时器操作
+ 目录：
+     一：数组操作
+     二：字符串操作
+     三：定时器操作
 
-## 一：数组操作
+ 一：数组操作
 1. shift函数
 //删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.shift();
  //a:[2,3,4,5] b:1  
-```
+
 
 2.unshift函数
 //将参数添加到原数组开头，并返回数组的长度 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.unshift(-2,-1);
  //a:[-2,-1,1,2,3,4,5] b:7   
-```
+
 注:在IE6.0下测试返回值总为undefined，FF2.0下测试返回值为7，所以这个方法的返回值不可靠，需要用返回值时可用splice代替本方法来使用。 
 
 
 3.pop函数
 //删除原数组最后一项，并返回删除元素的值；如果数组为空则返回undefined
-```bash
+
 例如： 
 var a = [1,2,3,4,5];   
 var b = a.pop(); 
 //a:[1,2,3,4] b:5  
-```
+
 
 4.push函数
 //将参数添加到原数组末尾，并返回数组的长度 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.push(6,7);
  //a:[1,2,3,4,5,6,7] b:7  
-```
+
 5.concat函数
 //返回一个新数组，是将参数添加到原数组中构成的 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.concat(6,7);
  //a:[1,2,3,4,5] b:[1,2,3,4,5,6,7]  
-```
+
 
 6.splice(start,deleteCount,val1,val2,...)函数
 //从start位置开始删除deleteCount项，并从该位置起插入val1,val2,... 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.splice(2,2,7,8,9); //a:[1,2,7,8,9,5] b:[3,4]   
@@ -60,41 +60,40 @@ var b = a.splice(0,1); //同shift   
 a.splice(0,0,-2,-1); var b = a.length; //同unshift   
 var b = a.splice(a.length-1,1); //同pop   
 a.splice(a.length,0,6,7); var b = a.length; //同push  
-```
+
 
 7.reverse函数
 //将数组反序 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.reverse(); //a:[5,4,3,2,1] b:[5,4,3,2,1]  
-```
+
 
 
 8.sort(orderfunction)函数
 //按指定的参数对数组进行排序 
-```bash
+
 例如:
 var a = [1,2,3,4,5];   
 var b = a.sort(); //a:[1,2,3,4,5] b:[1,2,3,4,5]  
-```
+
 
 9.slice(start,end)函数
 //返回从原数组中指定开始下标到结束下标之间的项组成的新数组 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.slice(2,5); //a:[1,2,3,4,5] b:[3,4,5]  
-```
+
 
 10.join(separator)函数
 //将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符 
-```bash
+
 例如：
 var a = [1,2,3,4,5];   
 var b = a.join("|"); //a:[1,2,3,4,5] b:"1|2|3|4|5"  
-```
-```bash
+
 //Array
 
 /*新建:*/var ary = new Array(); 或 var ary = [];   
@@ -108,7 +107,7 @@ var b = a.join("|"); //a:[1,2,3,4,5] b:"1|2|3|4|5"  
 /*增加:*/obj[key] = value; (key为string)   
 /*删除:*/delete obj[key];   
 /*遍历:*/for ( var key in obj ) obj[key];  
-```
+
 //以下讲述查询数组和查询对象的区别
 　　如果我们要在Array中检索出一个指定的值，我们需要遍历整个数组: 
 
@@ -151,28 +150,28 @@ var value = obj[key];  >  for ( ; ; )  >  for ( in )。效率最差的就是for(
 
 ## 二：字符串
 1.字符方法charAt  charCodeAt
-```bash
+
      charAt   //返回字符串指定位置的字符
      charCodeAt  //返回字符串指定位置字符的字符编码 
             例如：
     var str="hello world"; 
     console.log(str.charAt(1));     //e 
     console.log(str.charCodeAt(1));    //101
-```
+
 2. concat方法
-```bash
+
 例如：
 var str="hello "; 
     var res=str.concat("world"); 
     console.log(res);        //hello world
-```
+
 
 
 3. slice方法、substring方法、substr方法
   slice方法：第一个参数指定子字符串开始位置，第二个参数表示子字符串最后一个字符后面的位置 
     substring方法：第一个参数指定子字符串开始位置，第二个参数表示子字符串最后一个字符后面的位置 
     substr方法：第一个参数指定子字符串开始位置，第二个参数表示返回的字符个数
- ```bash
+
  例如：
 var str="hello world"; 
     console.log(str.slice(3));          //lo world 
@@ -183,10 +182,10 @@ var str="hello world";
     console.log(str.substring(3,7));    //lo w 
     console.log(str.substr(3,7));      //lo worl
 // 7表示返回7个字符 
-```
+
 
 4.字符串位置方法
-```bash
+
              //indexOf方法是从字符串的开头向后搜索子字符串，lastIndexOf方法正好相反             
              例如：
                  var str="hello world"; 
@@ -194,19 +193,19 @@ var str="hello world";
                    str.lastIndexOf("o")    //7 
                    str.indexOf("o",6)     //7 
                    str.lastIndexOf("o",6)    //4 
-```
+
 5.trim方法
-```bash
+
    // trim方法用来删除字符串前后的空格
               var str="   hello world   "; 
               str.trim();                 //hello world 
-```
+
 
 6.toUpperCase方法与toLowerCase方法
    //大小写转换
 
 7.replace方法
-```bash
+
   //注意字符串替换只会替换第一个被查询到的字符串
     可以使用正则表达式替换所有的字符串
   var str="cat,bat,sat,fat"; 
@@ -215,27 +214,27 @@ var str="hello world";
   console.log(res);                 //cone,bat,sat,fat 
   var res1=str.replace(/at/g,"one");
 //第一个参数是正则表达式，所以会替换所有的子字符串
-```
+
 8.Split方法
-```bash
+
     //将字符串转换成数组
     var str="red,blue,green,yellow"; 
     console.log(str.split(","));  //["red", "blue", "green", "yellow"] 
     console.log(str.split(",",2));      //["red", "blue"]  第二个参数用来限制数组大小
-```
+
 
 ## 三：定时器
 1.只执行一次的定时器
-```bash
+
 定义：setTimeout(功能，时间（毫秒）)
 销毁：
 oTimer=setTimeout(功能，时间（毫秒）)；
 clearTimeout(oTimer);
-```
+
 2.重复执行的定时器
-```bash
+
 定义：setInterval(功能，时间（毫秒）)
 销毁：
 oInterval=setInterval(功能，时间（毫秒）);
 clearInterval(oInterval);
-```
+
